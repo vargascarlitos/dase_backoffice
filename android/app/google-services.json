@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "156715072370",
+    "project_id": "dase-77989",
+    "storage_bucket": "dase-77989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156715072370:android:adea78ec5594e1fe6efbeb",
+        "android_client_info": {
+          "package_name": "com.dasegroup.dase_backoffice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156715072370-0undak4dpfd23c0hg1q3og262vv7hmvb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA43KwC7-ErOOfaZ0o0eP8PDSG2UikNFlA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156715072370-0undak4dpfd23c0hg1q3og262vv7hmvb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156715072370-6bud712bmje2lue9na7s5h2uqb25k3at.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dasegroup.daseBackoffice"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
