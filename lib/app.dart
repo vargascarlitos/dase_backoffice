@@ -1,4 +1,4 @@
-import 'package:dase_backoffice/utils/dase_theme.dart';
+import 'package:dase_backoffice/core/utils/dase_theme.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
