@@ -9,6 +9,6 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  injector.setup();
+  await injector.setup();
   runApp(const MyApp());
 }
