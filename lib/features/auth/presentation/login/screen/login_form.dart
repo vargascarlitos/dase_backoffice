@@ -1,6 +1,6 @@
 import 'package:dase_backoffice/core/validators/email_input.dart';
 import 'package:dase_backoffice/core/validators/password_input.dart';
-import 'package:dase_backoffice/features/auth/presentation/bloc/login_form/login_form_bloc.dart';
+import 'package:dase_backoffice/features/auth/presentation/login/bloc/login_form/login_form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

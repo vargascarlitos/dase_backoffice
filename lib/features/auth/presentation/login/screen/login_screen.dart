@@ -1,13 +1,15 @@
 import 'package:dase_backoffice/core/dependency_injection/dependency_injection_config.dart';
-import 'package:dase_backoffice/features/auth/presentation/bloc/login_form/login_form_bloc.dart';
-import 'package:dase_backoffice/features/auth/presentation/screen/login_form.dart';
+import 'package:dase_backoffice/features/auth/presentation/login/bloc/login_form/login_form_bloc.dart';
+import 'package:dase_backoffice/features/auth/presentation/login/screen/login_form.dart';
 import 'package:dase_backoffice/features/home/presentation/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
-  static const route = '/auth/login';
+  static const path = '/login';
+  static const name = 'login';
 
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -28,7 +30,7 @@ class LoginScreen extends StatelessWidget {
             }
             if (state.status!.isSubmissionSuccess &&
                 state.status!.isValidated) {
-              Navigator.of(context).pushNamed(HomeScreen.route);
+              GoRouter.of(context).pushNamed(HomeScreen.name);
               context.read<LoginFormBloc>().add(LoginFormReset());
             }
           },

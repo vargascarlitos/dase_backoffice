@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:dase_backoffice/features/auth/data/datasources/i_auth_source.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -9,13 +8,22 @@ class AuthFirebaseDataSource implements IAuthSource {
       : _firebaseAuth = firebaseAuth;
 
   @override
-  Future<User> login(
-      {required String email, required String password}) async {
+  Future<User> login({required String email, required String password}) async {
     final UserCredential userCredential =
-    await _firebaseAuth.signInWithEmailAndPassword(
+        await _firebaseAuth.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
     return userCredential.user!;
+  }
+
+  @override
+  Future<Stream<User?>> authStatus() async {
+    return _firebaseAuth.authStateChanges();
+  }
+
+  @override
+  Future<User?> currentUser() async {
+    return _firebaseAuth.currentUser;
   }
 }
