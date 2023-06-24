@@ -28,6 +28,9 @@ class _ClienteFormScreenState extends State<ClienteFormScreen> {
   late String _direccion;
   late String _referencia;
   late String _barrioCiudad;
+  // barrio
+  // ciudad
+  // departamento
   late String _ubicacion;
   late Map<String, String> _otrosDatos = {};
   late List<String> _descripcionesVarias = [];

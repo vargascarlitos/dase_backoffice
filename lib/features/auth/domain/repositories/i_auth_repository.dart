@@ -10,4 +10,6 @@ abstract class IAuthRepository {
   Future<Either<Failure, Stream<User?>>> authStatusChanges();
 
   Future<Either<Failure, User?>> currentUser();
+
+  Future<Either<Failure, bool>> signOut();
 }

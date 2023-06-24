@@ -26,4 +26,11 @@ class AuthFirebaseDataSource implements IAuthSource {
   Future<User?> currentUser() async {
     return _firebaseAuth.currentUser;
   }
+
+  @override
+  Future<bool> signOut() async {
+    await _firebaseAuth.signOut();
+
+    return true;
+  }
 }

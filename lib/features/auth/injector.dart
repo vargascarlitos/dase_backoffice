@@ -3,6 +3,7 @@ import 'package:dase_backoffice/features/auth/data/datasources/i_auth_source.dar
 import 'package:dase_backoffice/features/auth/data/repositories/auth_repository.dart';
 import 'package:dase_backoffice/features/auth/domain/repositories/i_auth_repository.dart';
 import 'package:dase_backoffice/features/auth/domain/usescases/auth_current_user_usecase.dart';
+import 'package:dase_backoffice/features/auth/domain/usescases/auth_sign_out_with_firebase_usecase.dart';
 import 'package:dase_backoffice/features/auth/domain/usescases/auth_sing_in_with_firebase_usecase.dart';
 import 'package:dase_backoffice/features/auth/domain/usescases/auth_status_changes_firebase_usecase.dart';
 import 'package:dase_backoffice/features/auth/presentation/login/bloc/auth/auth_bloc.dart';
@@ -36,6 +37,12 @@ Future<void> initAuthInjector() async {
 
   getIt.registerLazySingleton(
     () => AuthCurrentUserUseCase(
+      authRepository: getIt(),
+    ),
+  );
+
+  getIt.registerLazySingleton(
+    () => AuthSignOutWithFirebaseUseCase(
       authRepository: getIt(),
     ),
   );

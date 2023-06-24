@@ -1,9 +1,11 @@
 import 'package:dase_backoffice/core/dependency_injection/dependency_injection_config.dart';
+import 'package:dase_backoffice/features/auth/presentation/login/screen/login_screen.dart';
 import 'package:dase_backoffice/features/home/presentation/bloc/home_screen_bloc.dart';
 import 'package:dase_backoffice/features/home/presentation/screen/create_costumer.dart';
 import 'package:dase_backoffice/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   static const path = '/home';
@@ -15,7 +17,9 @@ class HomeScreen extends StatelessWidget {
       create: (_) => getIt<HomeScreenBloc>(),
       child: BlocListener<HomeScreenBloc, HomeScreenState>(
         listener: (context, state) {
-
+          if (state is HomeScreenWithoutSessionSuccess) {
+            GoRouter.of(context).pushReplacement(LoginScreen.name);
+          }
         },
         child: const HomeView(),
       ),

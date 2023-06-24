@@ -1,3 +1,4 @@
+import 'package:dase_backoffice/core/utils/dase_theme.dart';
 import 'package:dase_backoffice/features/home/presentation/bloc/home_screen_bloc.dart';
 import 'package:dase_backoffice/features/home/presentation/screen/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +34,13 @@ class _HomeDrawer extends StatelessWidget {
     return BlocBuilder<HomeScreenBloc, HomeScreenState>(
       builder: (context, state) {
         return Drawer(
-          backgroundColor: Colors.black,
+          backgroundColor: Theme.of(context).primaryColor,
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
               const DrawerHeader(
-                decoration: BoxDecoration(color: Colors.white),
+                decoration: BoxDecoration(
+                    color: DaseTheme.primaryColor),
                 child: Text('Drawer Header'),
               ),
               ListTile(
@@ -64,7 +66,7 @@ class _HomeDrawer extends StatelessWidget {
                 iconColor: Colors.grey,
                 title: const Text('Cerrar sesión'),
                 onTap: () {
-                  Navigator.pop(context);
+                  context.read<HomeScreenBloc>().add(HomeScreenSignOut());
                 },
               ),
             ],
@@ -73,5 +75,4 @@ class _HomeDrawer extends StatelessWidget {
       },
     );
   }
-
 }

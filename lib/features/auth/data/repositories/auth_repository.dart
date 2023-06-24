@@ -45,8 +45,7 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<Failure, User?>> currentUser() async {
     try {
-      final authCurrentUser =
-          await _authFirebaseDataSource.currentUser();
+      final authCurrentUser = await _authFirebaseDataSource.currentUser();
 
       return right(authCurrentUser);
     } on FirebaseAuthException catch (e) {
@@ -54,6 +53,18 @@ class AuthRepository implements IAuthRepository {
         AuthFailure(
             message:
                 e.message ?? "Error al querer recuperar el usuario actual"),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> signOut() async {
+    try {
+      final signOut = await _authFirebaseDataSource.signOut();
+      return right(signOut);
+    } on FirebaseAuthException catch (e) {
+      return left(
+        AuthFailure(message: e.message ?? "Error al querer cerrar sesión"),
       );
     }
   }
